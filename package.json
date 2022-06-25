@@ -1,6 +1,6 @@
 {
   "name": "feature-flag-util",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Feature flag utils to handle whitelist or percentage",
   "main": "./dist/feature-flag.util.js",
   "types": "./dist/feature-flag.util.d.ts",
@@ -8,7 +8,7 @@
     "lib": "dist"
   },
   "scripts": {
-    "build": "tsc -p .",
+    "build": "rm -rf ./dist; tsc -p .",
     "clean": "rm -rf ./node_modules .yarn.lock; yarn",
     "test": "jest",
     "coverage": "jest --coverage",
