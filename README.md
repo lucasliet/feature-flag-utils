@@ -1,28 +1,29 @@
-# Date Util
-Date handler to parse string and date in ISO and BR format
+# Feature Flag Util
+Utilities functions to deal with feature flags.
 
 ## installation
 ```SH
-yarn add @lucasliet/date-util
+yarn add feature-flag-util
 ```
 
 ## usage
 
 ```TS
-import * as DateUtil from '@lucasliet/date-util';
+import * as FeatureFlag from 'feature-flag-util';
 
-const dateBR: string = DateUtil.toBRFormat(new Date());       //returns string in dd/MM/yyyy format
+const whitelistedCompanies = ['012345678910234', '432019876543210'];
 
-const dateISO: string = DateUtil.toISOFormat(dateBR);         //returns string in yyyy-MM-yyyy format
+FeatureFlag.isCompanyListed(whitelistedCompanies, '012345678910234'); // returns true
 
-const isInBRFormat: boolean = DateUtil.isInBRFormat(dateBR);  //check if string pattern matches dd/MM/yyyy format
+FeatureFlag.isCompanyListed(whitelistedCompanies, '654321043201987'); // returns false
 
-const date: Date = DateUtil.parseDate(dateBR);                //returns a date Object from dd/MM/yyyy or yyyy-MM-dd string format
+FeatureFlag.isCompanyListedAsNumber(whitelistedCompanies, 12345678910234); // returns true
+
+FeatureFlag.isRandomInPercentage(50); // returns true if random number generated is less than 50 otherwise, false
 ```
-
 
 > ℹ for JavaScript <= es5 use require
 ```JS
-var DateUtil = require('@lucasliet/date-util');
-var date = DateUtil.parseDate('2001-03-21');
+var FeatureFlag = require('feature-flag-util');
+var result = FeatureFlag.isRandomInPercentage(50);
 ```
