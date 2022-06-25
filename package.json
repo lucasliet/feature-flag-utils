@@ -1,6 +1,6 @@
 {
   "name": "feature-flag-util",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Feature flag utils to handle whitelist or percentage",
   "main": "./dist/feature-flag.util.js",
   "types": "./dist/feature-flag.util.d.ts",
