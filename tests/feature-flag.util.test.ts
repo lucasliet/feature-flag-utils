@@ -2,9 +2,9 @@ import * as FeatureFlagUtil from '../src/feature-flag.util';
 
 afterEach(() => {
   jest.spyOn(global.Math, 'round').mockRestore();
-})
+});
 
-describe('MockWorks', () => {
+describe('Mock works!', () => {
   it('should return the mocked value', () => {
     jest.spyOn(global.Math, 'round').mockReturnValue(60);
 
@@ -14,8 +14,7 @@ describe('MockWorks', () => {
     jest.spyOn(global.Math, 'round').mockReturnValue(45);
 
     expect(Math.round(Math.random() * 100)).toBe(45);
-  }
-  )
+  });
 });
 
 describe('FeatureFlag', () => {
