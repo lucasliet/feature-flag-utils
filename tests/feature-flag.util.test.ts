@@ -4,8 +4,8 @@ afterEach(() => {
   jest.spyOn(global.Math, 'round').mockRestore();
 });
 
-describe('Mock works!', () => {
-  it('should return the mocked value', () => {
+describe('Mock Results', () => {
+  it('should return the mocked Math.round value', () => {
     jest.spyOn(global.Math, 'round').mockReturnValue(60);
 
     expect(Math.round(Math.random() * 100)).toBe(60);
@@ -17,7 +17,7 @@ describe('Mock works!', () => {
   });
 });
 
-describe('FeatureFlag', () => {
+describe('Whitelist Companies', () => {
   it('should return true if the company is listed in the list of companies to be on the new feature', () => {
     const companies = ['12345678901234', '12345678901235'];
     const company = '12345678901234';
@@ -41,7 +41,9 @@ describe('FeatureFlag', () => {
     const company = 2345678901236;
     expect(FeatureFlagUtil.isCompanyListedAsNumber(companies, company)).toBe(false);
   });
+});
 
+describe('Random Percentage', () => {
   it('should return true if the percentage is between 0 and 100, and then generates a random number in that range to check if it is less than the percentage', () => {
     jest.spyOn(global.Math, 'round').mockReturnValue(50);
     const percentage = 60;
@@ -74,5 +76,4 @@ describe('FeatureFlag', () => {
     const percentage = 101;
     expect(FeatureFlagUtil.isRandomInPercentage(percentage)).toBe(false);
   });
-
 });
