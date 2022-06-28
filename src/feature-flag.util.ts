@@ -1,23 +1,20 @@
 /**
  * Checks if the company is listed in the list of companies to be on the new feature.
  * If the company is in its short form, it will be checked with {@link String#startsWith}
+ * If the company is a number, convert the list of companies to number before check
  * @param company cnpj to be checked
  * @return true if the company is listed, false otherwise
  */
-export const isCompanyListed = (companies: string[], company: string): boolean =>
-  company.length < 14
-    ? companies.some(c => c.startsWith(company))
-    : companies.includes(company);
-
-/**
- * Convert the list of companies to number
- * then checks if the company is listed in the list of companies to be on the new feature.
- * @param company cnpj to be checked
- * @return true if the company is listed, false otherwise
- */
-export const isCompanyListedAsNumber = (companies: string[], company: number): boolean =>
-  companies.map(c => Number(c))
-    .includes(company);
+export const isCompanyListed = (companies: string[], company: string | number): boolean => {
+  if(typeof company === 'string') {
+    return company.length < 14
+      ? companies.some(c => c.startsWith(company))
+      : companies.includes(company);
+  } else {
+    return companies.map(c => Number(c))
+      .includes(company);
+  }
+}
 
 /**
  * Checks if percentage is between 0 and 100, and then generates a random number in that range

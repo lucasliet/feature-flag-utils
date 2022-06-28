@@ -33,13 +33,13 @@ describe('Whitelist Companies', () => {
   it('should return true if the company is listed in the list of companies to be on the new feature as number', () => {
     const companies = ['02345678901234', '12345678901235'];
     const company = 2345678901234;
-    expect(FeatureFlagUtil.isCompanyListedAsNumber(companies, company)).toBe(true);
+    expect(FeatureFlagUtil.isCompanyListed(companies, company)).toBe(true);
   });
 
   it('should return false if the company is not listed in the list of companies to be on the new feature as number', () => {
     const companies = ['02345678901234', '12345678901235'];
     const company = 2345678901236;
-    expect(FeatureFlagUtil.isCompanyListedAsNumber(companies, company)).toBe(false);
+    expect(FeatureFlagUtil.isCompanyListed(companies, company)).toBe(false);
   });
 });
 
